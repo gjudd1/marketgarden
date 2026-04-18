@@ -164,9 +164,25 @@ li {
 /* --- Hero --- */
 .hero {
   background: var(--green-dark);
+  background-size: cover;
+  background-position: center;
+  position: relative;
   color: var(--white);
   padding: var(--space-xl) 0;
   text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 32, 16, 0.68);
+  z-index: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -369,19 +385,23 @@ tr:last-child td {
 
 /* --- Page Header (interior pages) --- */
 .page-header {
-  background: var(--cream);
-  border-bottom: 1px solid var(--border);
-  padding: var(--space-lg) 0;
+  background: var(--green-dark);
+  border-bottom: none;
+  padding: var(--space-xl) 0;
 }
 
 .page-header h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+  color: var(--white);
 }
 
 .page-header p {
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.82);
   font-size: 1.05rem;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
 }
 
 /* --- Divider --- */
@@ -406,4 +426,85 @@ tr:last-child td {
 
 .site-footer a:hover {
   color: var(--white);
+}
+
+/* --- Card paragraph fix --- */
+.card p,
+.card li {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
+/* --- Three-Column Grid --- */
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .three-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- Media (image + text side by side) --- */
+.media {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  margin-top: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .media {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.media p,
+.media li {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
+.media-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
+/* --- Photo Banner --- */
+.photo-banner {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .photo-banner {
+    height: 360px;
+  }
+}
+
+/* --- Stats Row --- */
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .stats-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

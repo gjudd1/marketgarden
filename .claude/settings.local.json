@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:drive.google.com)",
+      "WebFetch(domain:www.okefarm.com)",
+      "WebFetch(domain:www.trinityrescue.org)"
+    ]
+  }
+}
