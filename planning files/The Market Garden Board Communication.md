@@ -1,0 +1,22 @@
+As we make progress on the Market Garden Project, I felt like it would be good to briefly articulate the full vision for it.  Some of you have heard pieces of this before, but not all of you.
+
+One of our donors, Jeff Meyer, had a vision to feed people at the mission nutritious food, provide jobs for ladies in our residential programs, offer education and training in regenerative farming practices, provide housing, and to donate and help raise the money to make all this possible. Jeff’s desire is to model a close‑knit, community‑based way of life where people work the land, support one another, and contribute to the common good.
+
+This vision has deep overlap with our goals related to addiction recovery, life skills, housing, and employment. As a result, we have worked together to create what we are currently calling the Market Garden Project: a regenerative farming partnership between the Farm at Okefenokee and Trinity Rescue Mission that provides food, jobs, training, and housing.
+
+We are currently operating a pilot on a one‑acre garden located at the Farm at Okefenokee outside Folkston, Georgia. Jeff contributed $100,000 designated toward this effort in 2025 and one of our board members gave an additional $50,000 this year. In addition, Jeff personally funded the initial garden development work, including soil preparation, irrigation, and testing, at a cost of approximately $50,000. We have hired a lead gardener who has extensive farming experience and a strong passion for working with ladies in our residential program. Currently, three ladies from our program are working in the garden two days per week and are in the process of planting the one-acre garden.  
+The goal of the pilot is to validate yields, costs, processes, and flows before expanding or adding additional components.
+
+The Farm at Okefenokee has already been generous in sharing out of its abundance. They have already provided vegetables and eggs for over 100 meals, with plans to provide an additional 6,000 meals in April.
+
+Looking ahead, Jeff has secured an option to purchase a 100‑acre farm adjacent to the Farm at Okefenokee to support the long‑term vision of this project. A master plan will be developed to outline the full scope of what is needed, including land, housing, and equipment. We are pursuing a USDA grant that is specifically focused on regenerative farming. Jeff is also working to arrange a visit from the Secretary of HUD in April and is seeking additional donations to fully fund the first year of the pilot. In parallel, we are launching a website that will describe and explain the joint project.
+
+The long-term vision is a 100-acre working farm with that combines produce and livestock supported by a greenhouse, aquaponics facility, a canning operation, training space and on-site housing for those program participants.
+
+By way of background:  
+Jeff Meyer is a Christian, an entrepreneur, conservationist, and long‑time leader involved in land stewardship, business innovation, and philanthropy. Raised in a farming community in Iowa, he developed an early respect for working land, conservation, and self‑sustaining communities, values that have shaped his career for more than five decades.  
+Jeff is co‑founder of the Farm at Okefenokee in Folkston, Georgia, a 700+ acre regenerative farming community designed to integrate agriculture, conservation, and healthy living. He is also founder of Johnny Appleseed Organic; an agricultural company focused on environmentally responsible products and climate‑positive farming practices.  
+His broader work includes leadership in national conservation efforts, including participation in planting 20 million trees across the United States and development of one of the largest privately funded habitat conservation banks in the country, preserving more than 600,000 acres of wildlife habitat. In the business sector, Jeff has led major renewable energy initiatives, including large‑scale solar development in Texas and clean‑energy infrastructure projects serving metropolitan power grids.  
+Jeff maintains residences in both Georgia and Jacksonville, Florida, and continues to focus his efforts on initiatives that connect land, sustainability, health, and long‑term community impact. Jeff considers it a blessing to work with Trinity Rescue Mission.
+
+We will continue to keep you posted on the progress of this project.
