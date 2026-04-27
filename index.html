@@ -1,109 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regenerative Farm Initiative</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Regenerative Farm Initiative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30;0,9..144,300..600,100;1,9..144,300..600,30&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+/* ===== Home page ===== */
+
+/* Hero */
+.hero{
+  background: var(--cream);
+  padding: 70px 0 90px;
+  position: relative;
+}
+.hero .container{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.hero-text .kicker{ margin-bottom: 24px; }
+.hero h1.tagline{
+  font-family: var(--serif);
+  font-weight: 300;
+  font-variation-settings: 'SOFT' 50, 'opsz' 144;
+  font-size: clamp(56px, 7vw, 96px);
+  line-height: .96;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  color: var(--ink);
+}
+.hero h1.tagline .word{ display: block; }
+.hero h1.tagline .em{
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 300;
+}
+.hero p.lede{
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 38ch;
+  margin-bottom: 32px;
+}
+.hero-actions{ display:flex; gap: 14px; flex-wrap: wrap; }
+
+.hero-photo{ position: relative; }
+.hero-photo .frame{
+  background: var(--green-dark);
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  position: relative;
+}
+.hero-photo .frame img{
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(.95);
+}
+.hero-photo .placeholder-overlay{
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end;
+  padding: 24px;
+  background: linear-gradient(180deg, transparent 50%, rgba(20,40,25,0.85) 100%);
+  color: var(--cream);
+}
+.hero-photo .placeholder-overlay .ph-text{
+  font-family: var(--serif); font-style: italic; font-size: 15px;
+  border-left: 2px solid var(--terracotta); padding-left: 12px;
+  max-width: 32ch;
+  line-height: 1.4;
+}
+.hero-photo .caption-tag{
+  position: absolute; top: -14px; left: 24px;
+  background: var(--cream); border: 1px solid var(--rule);
+  font-family: var(--sans); font-size: 11px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted);
+  padding: 6px 12px; border-radius: 4px;
+}
+@media (max-width: 880px){
+  .hero{ padding: 40px 0 60px; }
+  .hero .container{ grid-template-columns: 1fr; gap: 40px; }
+  .hero-photo .frame{ aspect-ratio: 4 / 3; }
+}
+
+/* Meal counter band */
+.meal-band{
+  background: var(--green-dark);
+  color: var(--cream);
+  padding: 56px 0;
+  position: relative;
+  border-top: 6px solid var(--terracotta);
+}
+.meal-band .container{
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center;
+}
+.meal-band h2{
+  color: var(--cream);
+  font-weight: 300;
+  font-variation-settings: 'SOFT' 50, 'opsz' 144;
+}
+.meal-band h2 em{ color: var(--mustard); font-style: italic; }
+.meal-band .sub{
+  margin-top: 14px;
+  color: rgba(255,255,255,0.78);
+  font-size: 16px; max-width: 40ch;
+}
+.counter{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 28px;
+  border-radius: 8px;
+}
+.counter-row{
+  display:flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  font-family: var(--serif);
+}
+.counter-row .now{
+  font-size: 78px; font-weight: 300; color: var(--white); line-height: 1;
+  font-variation-settings: 'SOFT' 30, 'opsz' 144;
+}
+.counter-row .of{ color: rgba(255,255,255,0.5); font-size: 28px; font-style: italic; }
+.counter-row .goal{ font-size: 38px; color: var(--cream-2); font-weight: 300; }
+.counter-row .label-meals{
+  font-family: var(--sans); font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); margin-left: 6px; align-self: center;
+}
+.counter-bar{
+  margin-top: 18px;
+  height: 8px; background: rgba(255,255,255,0.08);
+  border-radius: 999px; overflow: hidden;
+  position: relative;
+}
+.counter-bar > i{
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--terracotta), var(--mustard));
+  width: 44%;
+  border-radius: 999px;
+}
+.counter-meta{
+  display:flex; justify-content: space-between; margin-top: 10px;
+  font-size: 13px; color: rgba(255,255,255,0.6);
+  letter-spacing: .04em;
+}
+@media (max-width: 880px){
+  .meal-band .container{ grid-template-columns: 1fr; gap: 28px; }
+  .counter-row .now{ font-size: 56px; }
+}
+
+/* Three commitments */
+.commitments .container{
+  display:grid; grid-template-columns: 1fr 1.5fr; gap: 64px; align-items: flex-start;
+}
+.commitments .intro h2{ margin-bottom: 18px; }
+.commitments .intro p{ color: var(--ink-2); }
+.commitments .grid{
+  display:grid; grid-template-columns: 1fr; gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.commitment{
+  background: var(--white);
+  padding: 32px;
+  display: grid; grid-template-columns: 80px 1fr; gap: 22px; align-items: flex-start;
+  transition: background .2s;
+}
+.commitment:hover{ background: var(--cream); }
+.commitment .num{
+  font-family: var(--serif); font-style: italic;
+  color: var(--terracotta);
+  font-size: 56px; line-height: .9;
+  font-weight: 300;
+}
+.commitment h3{ margin-bottom: 10px; font-weight: 500; }
+.commitment p{ color: var(--ink-2); font-size: 16px; max-width: 56ch; }
+@media (max-width: 880px){
+  .commitments .container{ grid-template-columns: 1fr; gap: 32px; }
+  .commitment{ padding: 24px; }
+}
+
+/* Photo strip */
+.photo-strip{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1.4fr;
+  gap: 4px;
+  height: 360px;
+}
+.photo-strip img{
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(.92) contrast(1.02);
+}
+@media (max-width: 760px){
+  .photo-strip{ grid-template-columns: 1fr 1fr; height: auto; }
+  .photo-strip img{ aspect-ratio: 4/3; }
+}
+
+/* Pull quote section */
+.quote-section{ background: var(--cream-2); padding: 120px 0; position: relative; z-index: 1; clear: both; }
+.quote-section .container{ max-width: 880px; text-align: center; }
+.quote-section .pullquote{
+  border-left: none;
+  padding-left: 0;
+  max-width: 24ch;
+  margin: 0 auto;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.15;
+}
+.quote-section .pullquote cite{ margin-top: 22px; }
+.quote-mark{
+  font-family: var(--serif); font-style: italic;
+  font-size: 100px; color: var(--terracotta); line-height: 1;
+  display: block; margin-bottom: 8px;
+}
+
+/* Story preview / read pilot */
+.story-preview .container{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+}
+.story-preview .img-wrap{
+  border-radius: 6px; overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+}
+.story-preview .img-wrap img{ width:100%; height:100%; object-fit: cover; }
+.story-preview .img-wrap .badge{
+  position: absolute; top: 16px; left: 16px;
+  background: var(--cream); padding: 6px 12px; border-radius: 4px;
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--terracotta);
+}
+.story-preview h2{ margin-bottom: 18px; }
+.story-preview p{ color: var(--ink-2); font-size: 17px; margin-bottom: 14px; }
+.story-preview .actions{ margin-top: 24px; }
+@media (max-width: 880px){
+  .story-preview .container{ grid-template-columns: 1fr; }
+}
+
+/* Get involved */
+.get-involved{
+  background: var(--green-darker);
+  color: var(--cream);
+  padding: 80px 0;
+}
+.get-involved .container{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+}
+.get-involved h2{ color: var(--white); font-weight: 300; }
+.get-involved h2 em{ color: var(--mustard); font-style: italic; }
+.get-involved p{ color: rgba(255,255,255,0.78); font-size: 17px; }
+.get-involved a.email{
+  font-family: var(--serif); font-size: 22px; font-style: italic;
+  color: var(--cream); text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding-bottom: 4px;
+}
+.get-involved a.email:hover{ color: var(--white); border-color: var(--white); }
+@media (max-width: 880px){
+  .get-involved .container{ grid-template-columns: 1fr; gap: 24px; }
+}
+</style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <a class="site-title" href="index.html">Regenerative Farm Initiative</a>
-      <nav class="site-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="pilot.html">The Pilot</a>
-        <a href="partnership.html">The Partnership</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span class="brand-text">
+        <span class="top">Regenerative Farm</span>
+        <span class="bot">The Farm at Okefenokee &middot; Trinity Rescue Mission Initiative</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="pilot.html">The Pilot</a>
+      <a href="partnership.html">The Partnership</a>
+      <a class="cta-btn" href="/cdn-cgi/l/email-protection#c6afa8a0a986b2b4afa8afb2bfb4a3b5a5b3a3e8a9b4a1f9b5b3a4aca3a5b2fb94a3a1a3a8a3b4a7b2afb0a3e3f4f680a7b4abe3f4f68fa8afb2afa7b2afb0a3e3f4f6e383f4e3fef6e3fff2e3f4f6afa8b2a3b4a3b5b2a3a2e3f4f6afa8e3f4f6aea3aab6afa8a1">Contact Us</a>
+    </nav>
+  </div>
+</header>
 
-  <section class="hero" style="background-image: url('img/cattle-field.jpg');">
-    <div class="container">
-      <h1>Growing Food. Restoring Lives.</h1>
-      <p>A farm-to-mission model connecting recovery, employment, and regenerative farming.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-text">
+      <span class="kicker">The Market Garden Pilot</span>
+      <h1 class="tagline">
+        <span class="word">One <span class="em">woman</span>.</span>
+        <span class="word">One <span class="em">meal</span>.</span>
+        <span class="word">One <span class="em">acre</span>.</span>
+      </h1>
+      <p class="lede">A pilot underway in Folkston, Georgia &mdash; growing food for the homeless of Jacksonville, and growing women into the lives they were made for.</p>
       <div class="hero-actions">
-        <a href="pilot.html" class="btn btn-primary">See the Pilot</a>
-        <a href="partnership.html" class="btn btn-outline">The Partnership</a>
+        <a href="pilot.html" class="btn btn-primary">Read the pilot story <span class="arrow">&rarr;</span></a>
+        <a href="partnership.html" class="btn btn-ghost">Meet the partners</a>
       </div>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <span class="section-label">Our Vision</span>
-      <h2>Why This Initiative Exists</h2>
-      <p>The Regenerative Farm Initiative is a partnership between The Farm at Okefenokee and Trinity Rescue Mission, designed to provide holistic education for children, create life-giving job opportunities for women and single mothers, and produce nutritious food to feed the homeless of Jacksonville, Florida.</p>
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="img/hero-women-at-farm.jpeg" alt="Three women from the program at the Farm at Okefenokee">
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section section-alt">
-    <div class="container">
-      <span class="section-label">What the Farm Will Be</span>
-      <h2>Built to Last</h2>
-      <div class="media">
+<!-- MEAL COUNTER BAND -->
+<section class="meal-band">
+  <div class="container">
+    <div>
+      <span class="kicker" style="color: var(--mustard);">Year One Goal</span>
+      <h2>Twenty-five thousand <em>meals.</em></h2>
+      <p class="sub">From one acre, three women, and a kitchen 50 miles away. The number isn't the point &mdash; the people are. But the number tells you we're keeping our word.</p>
+    </div>
+    <div class="counter">
+      <div class="counter-row">
+        <span class="now">11,000</span>
+        <span class="of">/</span>
+        <span class="goal">25,000</span>
+        <span class="label-meals">meals served</span>
+      </div>
+      <div class="counter-bar"><i></i></div>
+      <div class="counter-meta">
+        <span>44% to goal</span>
+        <span>Updated April 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE COMMITMENTS -->
+<section class="commitments">
+  <div class="container">
+    <div class="intro">
+      <span class="kicker">Three commitments</span>
+      <h2>One mission, told three ways.</h2>
+      <p>The long-term vision is structured around three pillars &mdash; each a reason on its own, each impossible without the others.</p>
+    </div>
+    <div class="grid">
+      <article class="commitment">
+        <div class="num">01</div>
         <div>
-          <p class="section-intro">This is not a garden project. It is a full-scale regenerative farming operation designed to sustain employment, education, and food production for years to come.</p>
-          <ul>
-            <li>Produce and livestock at scale</li>
-            <li>Greenhouse and aquaponics facility</li>
-            <li>Canning operation</li>
-            <li>Training and education space</li>
-            <li>On-site housing for program participants</li>
-          </ul>
+          <h3>Jobs for women in recovery</h3>
+          <p>Life-giving work in a safe environment, where women from Trinity Rescue Mission's residential program step into stability, mentorship, and the slow rhythms of land &mdash; rhythms that mirror the rhythms of rebuilding a life.</p>
         </div>
-        <img src="img/harvest-crates.jpg" alt="Fresh vegetables harvested at the farm" class="media-img">
-      </div>
-    </div>
-  </section>
-
-  <img src="img/hero-tomatoes.jpg" alt="Heirloom tomatoes grown at the Farm at Okefenokee" class="photo-banner" style="object-position: center 40%;">
-
-  <section class="section">
-    <div class="container">
-      <span class="section-label">Practices That Sustain</span>
-      <h2>Three Commitments. One Mission.</h2>
-      <div class="three-col">
-        <div class="card">
-          <h3>Holistic Education for Children</h3>
-          <p>Investing in the future by providing children with the education they need to break the generational cycle of unhealth. Education can enable children to thrive and live an abundant life.</p>
-        </div>
-        <div class="card">
-          <h3>Access to Nutrient-Rich Food</h3>
-          <p>Real nutrition starts with real food. Those who are homeless lack consistent access to the whole, minimally processed foods that form the foundation of physical health, immune function, and long-term vitality. This initiative delivers regenerative, nutrient-dense food to those who need it most.</p>
-        </div>
-        <div class="card">
-          <h3>Jobs for Women and Single Mothers</h3>
-          <p>Creating life-giving jobs for women and single mothers in a safe environment where they can disconnect from chaos and step into stability, mentorship, and structure. Through training at Okefenokee Farm's established farm-to-table model, the fruit of their labor becomes regenerative food that feeds guests at Trinity Rescue Mission in downtown Jacksonville.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-dark">
-    <div class="container">
-      <span class="section-label" style="color: var(--brown-light);">The Unique Model</span>
-      <h2>A Win-Win by Design</h2>
-      <div class="media">
+      </article>
+      <article class="commitment">
+        <div class="num">02</div>
         <div>
-          <p>This initiative is designed so that the jobs created for women directly produce food that feeds the tables at Trinity Rescue Mission. The women tangibly see that their work matters — all while growing in a safe environment that develops life-long skills.</p>
-          <p>In addition to the women's work, children have access to farm education that goes beyond the classroom, teaching principles that instill long-term sustainable growth.</p>
-          <div class="hero-actions" style="justify-content: flex-start; margin-top: var(--space-md);">
-            <a href="pilot.html" class="btn btn-primary">See the Pilot</a>
-            <a href="partnership.html" class="btn btn-outline">The Partnership</a>
-          </div>
+          <h3>Food for the hungry</h3>
+          <p>Real nutrition starts with real food. The pilot delivers regenerative, nutrient-dense produce straight from the field to the tables of Jacksonville's homeless &mdash; the people who need whole food the most and see it the least.</p>
         </div>
-        <img src="img/farm-worker.jpg" alt="A woman working alongside the farm animals" class="media-img" style="border-radius: var(--radius);">
+      </article>
+      <article class="commitment">
+        <div class="num">03</div>
+        <div>
+          <h3>Education for children</h3>
+          <p>Investing in the next generation with farm-based education that goes beyond the classroom. Children learn the principles of long-term, sustainable growth &mdash; for the land, and for themselves.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip" aria-hidden="true">
+  <img src="img/cattle-field.jpg" alt="">
+  <img src="img/onions-harvest.jpg" alt="">
+  <img src="img/peppers.jpg" alt="">
+  <img src="img/harvest-table.jpg" alt="">
+</div>
+
+<!-- PULL QUOTE -->
+<section class="quote-section">
+  <div class="container">
+    <span class="quote-mark">&ldquo;</span>
+    <blockquote class="pullquote">
+      Regenerative farming requires patience, consistency, and showing up every day. So does recovery.
+      <cite>The premise of the partnership</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- STORY PREVIEW -->
+<section class="story-preview">
+  <div class="container">
+    <div class="img-wrap">
+      <span class="badge">The Pilot</span>
+      <img src="img/field-rows.jpg" alt="Rows of crops on the first acre at the Farm at Okefenokee">
+    </div>
+    <div>
+      <span class="kicker">From the Field</span>
+      <h2>The first acre is in the ground.</h2>
+      <p class="dropcap">Soil prepped. Irrigation laid. Heirloom seed in the rows. Three women from Trinity Rescue Mission's residential program working the garden several days a week. A 100-acre master plan in motion.</p>
+      <p>This is not a garden project. It's a working pilot &mdash; designed to validate yields, costs, and process before we scale.</p>
+      <div class="actions">
+        <a href="pilot.html" class="btn btn-primary">See where we are <span class="arrow">&rarr;</span></a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>A partnership between <a href="https://www.okefarm.com" target="_blank" rel="noopener">The Farm at Okefenokee</a> and <a href="https://www.trinityrescue.org" target="_blank" rel="noopener">Trinity Rescue Mission</a>.</p>
+<!-- PARTNER STRIP -->
+<div class="partner-strip">
+  <div class="container">
+    <span class="label">A partnership of</span>
+    <div class="logos">
+      <img class="light-logo" src="img/logo-okefenokee-white.png" alt="The Farm at Okefenokee">
+      <img class="dark-logo" src="img/logo-trm.png" alt="Trinity Rescue Mission">
     </div>
-  </footer>
+  </div>
+</div>
 
-</body>
+<!-- GET INVOLVED -->
+<section class="get-involved">
+  <div class="container">
+    <div>
+      <span class="kicker" style="color: var(--mustard);">Get involved</span>
+      <h2>If this resonates, <em>let's talk.</em></h2>
+    </div>
+    <div>
+      <p style="margin-bottom: 18px;">We're not asking for a transaction. We're inviting a conversation &mdash; about partnership, about giving, about how this kind of work can scale without losing what makes it work.</p>
+      <a class="email" href="/cdn-cgi/l/email-protection#3d54535b527d494f54535449444f584e5e485813524f5a024e485f57585e49006f585a5853584f5c49544b58180f0d7b5c4f50180f0d74535449545c49544b58180f0d18780f18050d180409180f0d545349584f584e495859180f0d5453180f0d5558514d54535a"><span class="__cf_email__" data-cfemail="f29b9c949db286809b9c9b868b809781918797dc9d8095">[email&#160;protected]</span> &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="color: var(--white);">
+          <span class="brand-mark"></span>
+          <span class="brand-text">
+            <span class="top">Regenerative Farm</span>
+            <span class="bot">Initiative</span>
+          </span>
+        </a>
+        <p style="margin-top: 16px; max-width: 36ch;">A partnership between The Farm at Okefenokee and Trinity Rescue Mission. Folkston, GA &harr; Jacksonville, FL.</p>
+      </div>
+      <div>
+        <h4>The site</h4>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="pilot.html">The Pilot</a></p>
+        <p><a href="partnership.html">The Partnership</a></p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p><a href="/cdn-cgi/l/email-protection#11787f777e516563787f7865686374627264743f7e6376"><span class="__cf_email__" data-cfemail="5930373f36192d2b3037302d202b3c2a3a2c3c77362b3e">[email&#160;protected]</span></a></p>
+        <p style="margin-top: 8px;">Trinity Rescue Mission<br>Jacksonville, FL</p>
+      </div>
+      <div>
+        <h4>Partners</h4>
+        <p><a href="https://www.okefarm.com" target="_blank" rel="noopener">okefarm.com &nearr;</a></p>
+        <p><a href="https://www.trinityrescue.org" target="_blank" rel="noopener">trinityrescue.org &nearr;</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Regenerative Farm Initiative</span>
+      <span class="footer-meal-counter"><strong>11,000</strong> of <strong>25,000</strong> meals &middot; <span style="color: rgba(255,255,255,0.4);">updated monthly</span></span>
+      <span>One woman. One meal. One acre.</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 </html>

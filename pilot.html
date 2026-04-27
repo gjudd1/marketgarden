@@ -1,113 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Market Garden Pilot — Regenerative Farm Initiative</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Pilot — Regenerative Farm Initiative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30;0,9..144,300..600,100;1,9..144,300..600,30&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+/* ===== Pilot page ===== */
+
+/* Page header */
+.page-hero{
+  background: var(--green-darker);
+  color: var(--cream);
+  padding: 80px 0 90px;
+  border-bottom: 6px solid var(--terracotta);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::after{
+  content:''; position:absolute; right:-100px; top:-100px; width: 420px; height: 420px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(184,67,31,0.18), transparent 70%);
+  pointer-events: none;
+}
+.page-hero .container{ position: relative; z-index: 1; max-width: 980px; }
+.page-hero .kicker{ color: var(--mustard); margin-bottom: 18px; }
+.page-hero h1{
+  color: var(--white); font-weight: 300;
+  font-variation-settings: 'SOFT' 50, 'opsz' 144;
+  font-size: clamp(48px, 6.5vw, 84px);
+  line-height: .98; letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+.page-hero h1 em{ color: var(--mustard); font-style: italic; }
+.page-hero p{
+  font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 56ch;
+}
+
+/* At-a-glance + goal */
+.framing{ background: var(--cream); padding: 64px 0 40px; }
+.framing .container{
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: stretch;
+}
+.glance{
+  background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+  padding: 36px;
+}
+.glance h2{ font-size: 28px; margin-bottom: 18px; font-weight: 500; }
+.glance p{ color: var(--ink-2); font-size: 16px; }
+.glance dl{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px;
+  margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--rule);
+}
+.glance dt{
+  font-family: var(--sans); font-size: 11px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+}
+.glance dd{
+  font-family: var(--serif); font-size: 22px; color: var(--ink); font-weight: 500;
+}
+
+.goal-card{
+  background: var(--green-dark); color: var(--cream);
+  border-radius: 6px;
+  padding: 36px; display: flex; flex-direction: column; justify-content: center;
+}
+.goal-card .label{ color: var(--mustard); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 14px; font-weight: 600; }
+.goal-card .big{
+  font-family: var(--serif); font-weight: 300;
+  font-variation-settings: 'SOFT' 30;
+  font-size: 64px; line-height: 1; color: var(--white);
+}
+.goal-card .of{ font-family: var(--serif); font-style: italic; color: rgba(255,255,255,0.5); font-size: 22px; }
+.goal-card .of strong{ color: var(--cream-2); font-style: normal; font-weight: 400; }
+.goal-card .bar{
+  margin-top: 18px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 999px; overflow: hidden;
+}
+.goal-card .bar > i{ display:block; height: 100%; width: 44%; background: linear-gradient(90deg, var(--terracotta), var(--mustard)); border-radius: 999px; }
+.goal-card .meta{ margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.65); display:flex; justify-content: space-between; }
+
+@media (max-width: 880px){
+  .framing .container{ grid-template-columns: 1fr; }
+}
+
+/* Where we are — milestones */
+.milestones{ padding: 60px 0; background: var(--cream); }
+.milestones .container > .head{ display:flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; gap: 20px; flex-wrap: wrap; }
+.milestones h2{ font-weight: 400; }
+.mile-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
+  background: var(--white);
+}
+.mile{
+  padding: 28px 24px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); position: relative;
+}
+.mile:nth-child(3n){ border-right: 0; }
+.mile:nth-last-child(-n+3){ border-bottom: 0; }
+.mile .step{ font-family: var(--sans); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.mile .name{ font-family: var(--serif); font-size: 22px; margin-bottom: 6px; font-weight: 500; line-height: 1.2; }
+.mile .desc{ font-size: 14px; color: var(--ink-2); padding-right: 36px; }
+.mile .check{
+  position: absolute; top: 24px; right: 24px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--green-dark); color: var(--white);
+  display:flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.mile.todo .check{ background: var(--cream-3); color: var(--terracotta); border: 1px dashed var(--terracotta); }
+.mile.todo .name{ color: var(--muted); }
+.mile.now{ background: var(--cream); }
+.mile.now .check{ background: var(--terracotta); border-color: var(--terracotta); color: var(--white); }
+.mile.now::before{
+  content: 'WE ARE HERE';
+  position: absolute; top: 0; left: 0;
+  font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .2em;
+  background: var(--terracotta); color: var(--white);
+  padding: 4px 10px; border-bottom-right-radius: 4px;
+}
+.mile.now .step{ margin-top: 14px; }
+@media (max-width: 880px){
+  .mile-grid{ grid-template-columns: 1fr 1fr; }
+  .mile{ border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .mile:nth-child(3n){ border-right: 1px solid var(--rule); }
+  .mile:nth-child(2n){ border-right: 0; }
+  .mile:nth-last-child(-n+3){ border-bottom: 1px solid var(--rule); }
+  .mile:nth-last-child(-n+2){ border-bottom: 0; }
+}
+
+/* Beyond pilot card */
+.beyond-pilot{
+  margin-top: 24px;
+  background: var(--green-darker); color: var(--cream);
+  border-radius: 6px;
+  padding: 36px;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: center;
+}
+.beyond-pilot .marker{
+  font-family: var(--serif); font-style: italic;
+  font-size: 14px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--mustard); font-weight: 600;
+  border-left: 2px solid var(--mustard); padding-left: 12px;
+  white-space: nowrap;
+}
+.beyond-pilot h3{
+  color: var(--white); font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 32px);
+  margin-bottom: 6px;
+}
+.beyond-pilot p{ color: rgba(255,255,255,0.72); font-size: 15px; max-width: 56ch; }
+.beyond-pilot .future-icon{
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.3);
+  display:flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-style: italic; color: var(--mustard); font-size: 22px;
+  flex-shrink: 0;
+}
+@media (max-width: 760px){
+  .beyond-pilot{ grid-template-columns: 1fr; gap: 16px; }
+  .beyond-pilot .future-icon{ display: none; }
+}
+
+/* Pilot budget */
+.budget{ padding: 80px 0; background: var(--cream-2); }
+.budget .head{ max-width: 720px; margin-bottom: 36px; }
+.budget h2{ font-weight: 400; margin-bottom: 14px; }
+.budget .head p{ color: var(--ink-2); font-size: 17px; }
+.budget-grid{
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+}
+.budget-card{
+  background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+  padding: 28px;
+  display:flex; flex-direction: column;
+}
+.budget-card .cat{ font-family: var(--sans); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--terracotta); font-weight: 600; }
+.budget-card .name{ font-family: var(--serif); font-size: 22px; line-height: 1.15; margin: 6px 0 12px; font-weight: 500; letter-spacing: -0.01em; }
+.budget-card .bar{ height: 6px; background: var(--cream-3); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+.budget-card .bar > i{ display:block; height: 100%; border-radius: 999px; }
+.budget-card.b1 .bar > i{ width: 100%; background: var(--green-dark); }
+.budget-card.b2 .bar > i{ width: 55%; background: var(--mustard); }
+.budget-card.b3 .bar > i{ width: 35%; background: var(--terracotta); }
+.budget-card.b4 .bar > i{ width: 40%; background: var(--ink); }
+.budget-card.b5 .bar > i{ width: 22%; background: var(--rule-2); }
+.budget-card.b5{ background: var(--cream); border-style: dashed; }
+.budget-card .desc{ color: var(--ink-2); font-size: 15px; line-height: 1.5; }
+
+.budget-total{
+  display:flex; justify-content: space-between; align-items: center; gap: 24px;
+  margin-top: 28px;
+  padding: 24px 28px;
+  background: var(--green-darker); color: var(--cream);
+  border-radius: 6px; flex-wrap: wrap;
+}
+.budget-total .total-num{ font-family: var(--serif); font-size: 38px; color: var(--white); font-weight: 300; }
+.budget-total .total-num em{ font-style: italic; color: var(--mustard); }
+.budget-total p{ color: rgba(255,255,255,0.78); font-size: 15px; max-width: 50ch; }
+
+@media (max-width: 1080px){
+  .budget-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 880px){
+  .budget-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px){
+  .budget-grid{ grid-template-columns: 1fr; }
+}
+
+/* From the Field */
+.from-field{ padding: 90px 0; background: var(--cream); border-top: 1px solid var(--rule); }
+.from-field .ff-head{
+  display:flex; justify-content: space-between; align-items: flex-end; gap: 24px;
+  margin-bottom: 40px; flex-wrap: wrap;
+}
+.from-field h2{
+  font-weight: 300; font-style: italic;
+  font-variation-settings: 'SOFT' 60;
+  font-size: clamp(36px, 4.5vw, 56px);
+}
+.from-field h2 strong{ font-style: normal; font-weight: 400; color: var(--terracotta); }
+.from-field .ff-sub{ font-size: 15px; color: var(--muted); max-width: 36ch; }
+.ff-filters{ display:flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.ff-pill{
+  padding: 6px 14px; border-radius: 999px;
+  border: 1px solid var(--rule); background: var(--white);
+  font-family: var(--sans); font-size: 13px; color: var(--ink-2); cursor: pointer;
+  transition: all .15s;
+}
+.ff-pill.active{ background: var(--ink); color: var(--white); border-color: var(--ink); }
+.ff-pill:hover:not(.active){ border-color: var(--ink); }
+
+.ff-list{ display:flex; flex-direction: column; gap: 0; border-top: 1px solid var(--rule); }
+.ff-entry{
+  display: grid; grid-template-columns: 200px 1fr; gap: 36px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: flex-start;
+}
+.ff-entry .photo{
+  aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;
+}
+.ff-entry .photo img{ width: 100%; height: 100%; object-fit: cover; }
+.ff-meta{
+  display:flex; gap: 12px; align-items: center; margin-bottom: 10px;
+  font-family: var(--sans); font-size: 12px; letter-spacing: .15em; text-transform: uppercase;
+}
+.ff-meta .date{ color: var(--muted); font-weight: 600; }
+.ff-meta .dot{ width: 4px; height: 4px; background: var(--rule-2); border-radius: 50%; }
+.ff-entry h3{
+  font-family: var(--serif); font-weight: 500;
+  font-size: 28px; line-height: 1.15; margin-bottom: 12px; color: var(--ink);
+}
+.ff-entry p{ color: var(--ink-2); font-size: 16px; line-height: 1.6; max-width: 60ch; }
+.ff-entry p + p{ margin-top: 10px; }
+.ff-byline{
+  margin-top: 14px; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--muted);
+}
+.ff-more{
+  margin-top: 28px; text-align: center;
+  font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 16px;
+}
+.ff-more::before, .ff-more::after{ content: '·'; margin: 0 14px; }
+
+@media (max-width: 760px){
+  .ff-entry{ grid-template-columns: 1fr; gap: 18px; }
+  .ff-entry .photo{ max-width: 280px; }
+}
+
+/* Quiet ask */
+.pilot-ask{
+  background: var(--green-darker); color: var(--cream); padding: 70px 0;
+  text-align: center;
+}
+.pilot-ask h2{ color: var(--white); font-weight: 300; max-width: 22ch; margin: 0 auto 20px; }
+.pilot-ask h2 em{ color: var(--mustard); font-style: italic; }
+.pilot-ask p{ color: rgba(255,255,255,0.78); max-width: 56ch; margin: 0 auto 26px; }
+.pilot-ask a.email{
+  font-family: var(--serif); font-size: 22px; font-style: italic;
+  color: var(--cream); text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 4px;
+}
+.pilot-ask a.email:hover{ color: var(--white); border-color: var(--white); }
+</style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <a class="site-title" href="index.html">Regenerative Farm Initiative</a>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="pilot.html" class="active">The Pilot</a>
-        <a href="partnership.html">The Partnership</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span class="brand-text">
+        <span class="top">Regenerative Farm</span>
+        <span class="bot">The Farm at Okefenokee &middot; Trinity Rescue Mission Initiative</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="pilot.html" class="active">The Pilot</a>
+      <a href="partnership.html">The Partnership</a>
+      <a class="cta-btn" href="/cdn-cgi/l/email-protection#d4bdbab2bb94a0a6bdbabda0ada6b1a7b7a1b1fabba6b3eba7a1b6beb1b7a0e986b1b3b1bab1a6b5a0bda2b1f1e6e492b5a6b9f1e6e49dbabda0bdb5a0bda2b1f1e6e4f191e6f1ece4f1ede0f1e6e4bdbaa0b1a6b1a7a0b1b0f1e6e4bdbaf1e6e4bcb1b8a4bdbab3">Contact Us</a>
+    </nav>
+  </div>
+</header>
 
-  <div class="page-header">
-    <div class="container">
-      <h1>The Market Garden Pilot</h1>
-      <p>One acre. Three women. Folkston, Georgia.</p>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="kicker">/ The Pilot</span>
+    <h1>The Market Garden &mdash; <em>one acre</em>, on purpose.</h1>
+    <p>A working pilot at the Farm at Okefenokee in Folkston, Georgia. Three women from Trinity Rescue Mission's residential program. Heirloom seed in the rows. Food on the table at the Mission's downtown Jacksonville kitchen.</p>
+  </div>
+</section>
+
+<!-- AT A GLANCE + GOAL -->
+<section class="framing">
+  <div class="container">
+    <div class="glance">
+      <h2>At a glance</h2>
+      <p>We started small on purpose. The pilot is designed to validate yields, costs, processes, and flows before we scale to 100 acres &mdash; and to give three women from TRM's residential program real, paid work in a place where the rhythm of the land mirrors the rhythm of recovery.</p>
+      <dl>
+        <div><dt>Where</dt><dd>Folkston, GA</dd></div>
+        <div><dt>Acreage</dt><dd>1 acre planted</dd></div>
+        <div><dt>Workforce</dt><dd>3 women, TRM</dd></div>
+        <div><dt>Destination</dt><dd>TRM kitchen, Jax</dd></div>
+      </dl>
+    </div>
+    <div class="goal-card">
+      <span class="label">Year One Goal</span>
+      <div>
+        <span class="big">11,000</span>
+        <span class="of">&nbsp;of&nbsp;<strong>25,000</strong>&nbsp;meals</span>
+      </div>
+      <div class="bar"><i></i></div>
+      <div class="meta">
+        <span>44% to goal</span>
+        <span>Updated April 2026</span>
+      </div>
     </div>
   </div>
+</section>
 
-  <section class="section">
-    <div class="container">
-      <span class="section-label">How It Started</span>
-      <h2>Starting Small on Purpose</h2>
-      <p>We started small on purpose. The pilot garden at the Farm at Okefenokee is designed to validate yields, costs, processes, and flows before we scale to 100 acres. Three women from Trinity Rescue Mission's residential program currently work the garden several days a week.</p>
+<!-- WHERE WE ARE -->
+<section class="milestones">
+  <div class="container">
+    <div class="head">
+      <div>
+        <span class="kicker">Where we are</span>
+        <h2>Year-one progress, step by step.</h2>
+      </div>
+      <p style="font-style: italic; color: var(--muted); max-width: 36ch;">Three milestones complete, one in motion right now, and two more before the pilot year closes.</p>
     </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <span class="section-label">Where We Are</span>
-      <h2>Progress to Date</h2>
-      <div class="media">
-        <ul>
-          <li>Soil prep and testing have been completed</li>
-          <li>Irrigation has been installed and is operational</li>
-          <li>The one-acre garden has been fully planted with heirloom seeds started in the Okefenokee Farm greenhouse</li>
-          <li>Three women from Trinity Rescue Mission are gaining farming skills and work experience through this employment opportunity</li>
-          <li>The broader Farm at Okefenokee has donated eggs, produce, and meat out of its abundance — food for more than 6,100 meals to date</li>
-        </ul>
-        <img src="img/onions-harvest.jpg" alt="Freshly harvested onions laid out to dry at the farm" class="media-img">
+    <div class="mile-grid">
+      <div class="mile">
+        <div class="check">&check;</div>
+        <div class="step">Step 01</div>
+        <div class="name">Soil prepped &amp; tested</div>
+        <div class="desc">Foundation laid in fall &mdash; the slow work nobody sees.</div>
+      </div>
+      <div class="mile">
+        <div class="check">&check;</div>
+        <div class="step">Step 02</div>
+        <div class="name">Irrigation installed</div>
+        <div class="desc">Drip lines run, system pressurized and operational.</div>
+      </div>
+      <div class="mile">
+        <div class="check">&check;</div>
+        <div class="step">Step 03</div>
+        <div class="name">First planting</div>
+        <div class="desc">Heirloom seed started in the Okefenokee greenhouse, transplanted to the field.</div>
+      </div>
+      <div class="mile now">
+        <div class="check">&bull;</div>
+        <div class="step">Step 04</div>
+        <div class="name">Tend &amp; harvest, cycle 1</div>
+        <div class="desc">Regular rhythm of watering and cultivating through the growing season.</div>
+      </div>
+      <div class="mile todo">
+        <div class="check">&rarr;</div>
+        <div class="step">Step 05</div>
+        <div class="name">Plant, tend, harvest &mdash; cycles 2 &amp; 3</div>
+        <div class="desc">Two more rotations through the same acre &mdash; summer crops and a fall planting before the year closes.</div>
+      </div>
+      <div class="mile todo">
+        <div class="check">&rarr;</div>
+        <div class="step">Step 06</div>
+        <div class="name">Pilot review &amp; playbook</div>
+        <div class="desc">Yields, costs, processes documented &mdash; what we learned, what we'd repeat, what changes for year two.</div>
       </div>
     </div>
-  </section>
 
-  <img src="img/squash-harvest.jpg" alt="Summer squash and eggplant harvested from the garden" class="photo-banner">
-
-  <section class="section">
-    <div class="container">
-      <span class="section-label">The Budget</span>
-      <h2>Market Garden Pilot Budget</h2>
-      <p>The Market Garden Pilot budget is $300,000, covering the cost of wages, transportation, housing, and master planning.</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Purpose</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Wages</td>
-            <td>Compensation for women working the garden</td>
-          </tr>
-          <tr>
-            <td>Transportation</td>
-            <td>Travel between Jacksonville and Folkston</td>
-          </tr>
-          <tr>
-            <td>Housing</td>
-            <td>On-site accommodations during work periods</td>
-          </tr>
-          <tr>
-            <td>Master Planning</td>
-            <td>Design and planning for full 100-acre scale</td>
-          </tr>
-          <tr>
-            <td><strong>Total</strong></td>
-            <td><strong>$300,000</strong></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="beyond-pilot">
+      <span class="marker">Beyond the pilot</span>
+      <div>
+        <h3>Scale to 100 acres.</h3>
+        <p>The pilot exists to earn the right to do this at scale. Master plan in motion. Grant work underway.</p>
+      </div>
+      <div class="future-icon">&infin;</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section section-dark">
-    <div class="container">
-      <span class="section-label" style="color: var(--brown-light);">What's Next</span>
-      <h2>The Road Ahead</h2>
-      <p>Working the pilot project through a full growing cycle, validating the results, completing master planning, and exploring grant opportunities are the steps being taken during this initial phase.</p>
-      <p>The goal: prove the model at one acre, then scale to 100.</p>
-      <div class="hero-actions" style="justify-content: flex-start; margin-top: var(--space-md);">
-        <a href="partnership.html" class="btn btn-primary">Meet the Partners</a>
+<!-- BUDGET -->
+<section class="budget">
+  <div class="container">
+    <div class="head">
+      <span class="kicker">Pilot budget</span>
+      <h2>$300,000, five line items.</h2>
+      <p>Every dollar is tied to a person, a roof, a road, or a plan. Bar widths reflect approximate proportions of the working budget &mdash; final allocations will be reported as the year closes.</p>
+    </div>
+    <div class="budget-grid">
+      <div class="budget-card b1">
+        <span class="cat">Line 01</span>
+        <div class="name">Wages</div>
+        <div class="bar"><i></i></div>
+        <div class="desc">Compensation for the women working the garden &mdash; real paychecks, not stipends.</div>
+      </div>
+      <div class="budget-card b2">
+        <span class="cat">Line 02</span>
+        <div class="name">Housing</div>
+        <div class="bar"><i></i></div>
+        <div class="desc">Nearby accommodations during work weeks at the Farm at Okefenokee.</div>
+      </div>
+      <div class="budget-card b3">
+        <span class="cat">Line 03</span>
+        <div class="name">Transport</div>
+        <div class="bar"><i></i></div>
+        <div class="desc">Travel between Jacksonville and Folkston for the women and the harvest.</div>
+      </div>
+      <div class="budget-card b4">
+        <span class="cat">Line 04</span>
+        <div class="name">Master plan</div>
+        <div class="bar"><i></i></div>
+        <div class="desc">Design and planning for the 100-acre scale-up that follows year one.</div>
+      </div>
+      <div class="budget-card b5">
+        <span class="cat">Line 05</span>
+        <div class="name">Contingency</div>
+        <div class="bar"><i></i></div>
+        <div class="desc">A held-back reserve for the unknowns &mdash; weather, equipment, the things a first year always finds.</div>
       </div>
     </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>A partnership between <a href="https://www.okefarm.com" target="_blank" rel="noopener">The Farm at Okefenokee</a> and <a href="https://www.trinityrescue.org" target="_blank" rel="noopener">Trinity Rescue Mission</a>.</p>
+    <div class="budget-total">
+      <div class="total-num"><em>$300,000</em></div>
+      <p>The full pilot budget &mdash; covering wages, transport, housing, master planning, and contingency across the first growing year.</p>
     </div>
-  </footer>
+  </div>
+</section>
 
-</body>
+<!-- FROM THE FIELD -->
+<section class="from-field">
+  <div class="container">
+    <div class="ff-head">
+      <div>
+        <span class="kicker">Updates from the garden</span>
+        <h2><strong>From the Field.</strong></h2>
+      </div>
+      <p class="ff-sub">Notes from the pilot, posted monthly. New entries land at the top.</p>
+    </div>
+
+    <div class="ff-filters">
+      <button class="ff-pill active">All</button>
+      <button class="ff-pill">Harvest</button>
+      <button class="ff-pill">People</button>
+      <button class="ff-pill">Land</button>
+      <button class="ff-pill">Kitchen</button>
+    </div>
+
+    <div class="ff-list">
+      <article class="ff-entry">
+        <div class="photo"><img src="img/field-rows.jpg" alt="Rows of seedlings under a setting sun"></div>
+        <div>
+          <div class="ff-meta">
+            <span class="date">April 23, 2026</span>
+            <span class="dot"></span>
+            <span class="tag-pill mustard">Land</span>
+          </div>
+          <h3>Vegetables are growing!</h3>
+        </div>
+      </article>
+
+      <article class="ff-entry">
+        <div class="photo"><img src="img/unloading-meat.jpg" alt="Volunteers unloading bags of food from a pickup truck"></div>
+        <div>
+          <div class="ff-meta">
+            <span class="date">April 8, 2026</span>
+            <span class="dot"></span>
+            <span class="tag-pill">Kitchen</span>
+          </div>
+          <h3>The Farm at Okefenokee sharing out of its abundance.</h3>
+        </div>
+      </article>
+
+      <article class="ff-entry">
+        <div class="photo"><img src="img/planted.jpeg" alt="Volunteers loading bags of food onto a cart"></div>
+        <div>
+          <div class="ff-meta">
+            <span class="date">March 20, 2026</span>
+            <span class="dot"></span>
+            <span class="tag-pill green">People</span>
+          </div>
+          <h3>Most of the market garden was planted today!</h3>
+          <p>It was a very productive day with a lot of people working on it.</p>
+        </div>
+      </article>
+
+      <article class="ff-entry">
+        <div class="photo"><img src="img/irrigation.jpeg" alt="Newly installed irrigation lines running through prepared field rows"></div>
+        <div>
+          <div class="ff-meta">
+            <span class="date">February 4, 2026</span>
+            <span class="dot"></span>
+            <span class="tag-pill mustard">Land</span>
+          </div>
+          <h3>Irrigation is now completed.</h3>
+        </div>
+      </article>
+    </div>
+
+    <p class="ff-more">More to come, posted monthly</p>
+  </div>
+</section>
+
+<!-- PARTNER STRIP -->
+<div class="partner-strip">
+  <div class="container">
+    <span class="label">A partnership of</span>
+    <div class="logos">
+      <img class="light-logo" src="img/logo-okefenokee-white.png" alt="The Farm at Okefenokee">
+      <img class="dark-logo" src="img/logo-trm.png" alt="Trinity Rescue Mission">
+    </div>
+  </div>
+</div>
+
+<!-- ASK -->
+<section class="pilot-ask">
+  <div class="container">
+    <span class="kicker" style="color: var(--mustard);">Get involved</span>
+    <h2>Want to walk the field <em>with us?</em></h2>
+    <p>Donors, partners, and friends &mdash; we'd rather have a conversation than a transaction. Send a note and we'll find time.</p>
+    <a class="email" href="/cdn-cgi/l/email-protection#0e676068614e7a7c6760677a777c6b7d6d7b6b20617c69317d7b6c646b6d7a335a666b2b3c3e5e6762617a2b3c3e2b4b3c2b363e2b373a2b3c3e67607a6b7c6b7d7a6b6a2b3c3e67602b3c3e666b627e676069"><span class="__cf_email__" data-cfemail="e78e898188a793958e898e939e958294849282c9889580">[email&#160;protected]</span> &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="color: var(--white);">
+          <span class="brand-mark"></span>
+          <span class="brand-text">
+            <span class="top">Regenerative Farm</span>
+            <span class="bot">Initiative</span>
+          </span>
+        </a>
+        <p style="margin-top: 16px; max-width: 36ch;">A partnership between The Farm at Okefenokee and Trinity Rescue Mission.</p>
+      </div>
+      <div>
+        <h4>The site</h4>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="pilot.html">The Pilot</a></p>
+        <p><a href="partnership.html">The Partnership</a></p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p><a href="/cdn-cgi/l/email-protection#8ee7e0e8e1cefafce7e0e7faf7fcebfdedfbeba0e1fce9"><span class="__cf_email__" data-cfemail="6e070008012e1a1c0700071a171c0b1d0d1b0b40011c09">[email&#160;protected]</span></a></p>
+      </div>
+      <div>
+        <h4>Partners</h4>
+        <p><a href="https://www.okefarm.com" target="_blank" rel="noopener">okefarm.com &nearr;</a></p>
+        <p><a href="https://www.trinityrescue.org" target="_blank" rel="noopener">trinityrescue.org &nearr;</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Regenerative Farm Initiative</span>
+      <span class="footer-meal-counter"><strong>11,000</strong> of <strong>25,000</strong> meals &middot; <span style="color: rgba(255,255,255,0.4);">updated monthly</span></span>
+      <span>One woman. One meal. One acre.</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 </html>
