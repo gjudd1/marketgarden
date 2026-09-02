@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+  TEMPORARY EVENT REDIRECT - remove after the event.
+  /partnerships  ->  https://www.ticketmaster.com/event/2200651C95EF34CC
+
+  This whole folder is the redirect. Nothing else in the site was changed.
+  To undo: delete the "partnerships" folder, commit, push.
+  The real partnership page is /partnership.html (singular) and was not touched.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Redirecting to tickets</title>
+<meta http-equiv="refresh" content="0; url=https://www.ticketmaster.com/event/2200651C95EF34CC">
+<link rel="canonical" href="https://www.ticketmaster.com/event/2200651C95EF34CC">
+<meta name="robots" content="noindex">
+<style>
+  body{
+    margin:0; min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    background:#faf6ef; color:#2b2a26;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    text-align:center; padding:24px;
+  }
+  .box{max-width:34rem}
+  h1{font-size:1.35rem; font-weight:600; margin:0 0 .75rem}
+  p{margin:0 0 1.25rem; color:#5c574d; line-height:1.5}
+  a.btn{
+    display:inline-block; padding:.75rem 1.4rem; border-radius:6px;
+    background:#b5502f; color:#fff; text-decoration:none; font-weight:600;
+  }
+  a.btn:hover{background:#984226}
+</style>
+</head>
+<body>
+  <div class="box">
+    <h1>Taking you to the ticket page</h1>
+    <p>If you are not redirected automatically, use the link below.</p>
+    <p><a class="btn" href="https://www.ticketmaster.com/event/2200651C95EF34CC">Get tickets on Ticketmaster</a></p>
+  </div>
+  <script>
+    window.location.replace("https://www.ticketmaster.com/event/2200651C95EF34CC");
+  </script>
+</body>
+</html>
