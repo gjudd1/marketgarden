@@ -11,6 +11,28 @@
 <style>
 /* ===== Home page ===== */
 
+/* Premiere banner */
+.premiere-banner{
+  display: block; text-decoration: none;
+  background: var(--green-darker); color: var(--cream);
+  border-bottom: 3px solid var(--terracotta);
+}
+.premiere-banner .container{
+  display:flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap;
+  padding-top: 14px; padding-bottom: 14px; text-align: center;
+}
+.premiere-banner .pb-kicker{
+  font-family: var(--sans); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--mustard); font-weight: 600;
+}
+.premiere-banner .pb-text{ font-family: var(--serif); font-size: 17px; color: var(--white); }
+.premiere-banner .pb-text em{ font-style: italic; color: var(--cream-2); }
+.premiere-banner .pb-cta{
+  font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--white);
+  background: var(--terracotta); padding: 6px 14px; border-radius: 999px; white-space: nowrap;
+}
+.premiere-banner:hover .pb-cta{ background: var(--terracotta-d); }
+
 /* Hero */
 .hero{
   background: var(--cream);
@@ -138,7 +160,7 @@
 .counter-bar > i{
   display: block; height: 100%;
   background: linear-gradient(90deg, var(--terracotta), var(--mustard));
-  width: 44%;
+  width: 100%;
   border-radius: 999px;
 }
 .counter-meta{
@@ -280,11 +302,22 @@
     <nav class="site-nav">
       <a href="index.html" class="active">Home</a>
       <a href="pilot.html">The Pilot</a>
-      <a href="partnership.html">The Partnership</a>
-      <a class="cta-btn" href="mailto:info@trinityrescue.org">Contact Us</a>
+      <a href="phase-one.html">Phase One</a>
+      <a href="about.html">About the Partners</a>
+      <a href="mailto:info@trinityrescue.org">Contact Us</a>
+      <a class="cta-btn" href="partnership.html">The Premiere</a>
     </nav>
   </div>
 </header>
+
+<!-- PREMIERE BANNER (remove after 2026-11-12) -->
+<a class="premiere-banner" href="partnership.html">
+  <div class="container">
+    <span class="pb-kicker">Documentary premiere</span>
+    <span class="pb-text"><em>Trembling Earth</em> &middot; Thursday, November 12, 2026 &middot; Terry Theater, Jacksonville</span>
+    <span class="pb-cta">Tickets and details &rarr;</span>
+  </div>
+</a>
 
 <!-- HERO -->
 <section class="hero">
@@ -299,7 +332,7 @@
       <p class="lede">A pilot underway in Folkston, Georgia &mdash; growing food for the homeless of Jacksonville, and growing women into the lives they were made for.</p>
       <div class="hero-actions">
         <a href="pilot.html" class="btn btn-primary">Read the pilot story <span class="arrow">&rarr;</span></a>
-        <a href="partnership.html" class="btn btn-ghost">Meet the partners</a>
+        <a href="about.html" class="btn btn-ghost">Meet the partners</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -320,15 +353,15 @@
     </div>
     <div class="counter">
       <div class="counter-row">
-        <span class="now">12,500</span>
+        <span class="now">30,000</span>
         <span class="of">/</span>
         <span class="goal">25,000</span>
         <span class="label-meals">meals served</span>
       </div>
       <div class="counter-bar"><i></i></div>
       <div class="counter-meta">
-        <span>50% to goal</span>
-        <span>Updated June 2026</span>
+        <span>Goal surpassed</span>
+        <span>Updated September 2026</span>
       </div>
     </div>
   </div>
@@ -397,7 +430,7 @@
     <div>
       <span class="kicker">From the Field</span>
       <h2>The first acre is in the ground.</h2>
-      <p class="dropcap">Soil prepped. Irrigation laid. Heirloom seed in the rows. Three women from Trinity Rescue Mission's residential program working the garden several days a week. A 100-acre master plan in motion.</p>
+      <p class="dropcap">Soil prepped. Irrigation laid. Heirloom seed in the rows. Three women from Trinity Rescue Mission's residential program working the garden several days a week. A 126-acre master plan in motion.</p>
       <p>This is not a garden project. It's a working pilot &mdash; designed to validate yields, costs, and process before we scale.</p>
       <div class="actions">
         <a href="pilot.html" class="btn btn-primary">See where we are <span class="arrow">&rarr;</span></a>
@@ -449,7 +482,9 @@
         <h4>The site</h4>
         <p><a href="index.html">Home</a></p>
         <p><a href="pilot.html">The Pilot</a></p>
-        <p><a href="partnership.html">The Partnership</a></p>
+        <p><a href="phase-one.html">Phase One</a></p>
+        <p><a href="about.html">About the Partners</a></p>
+        <p><a href="partnership.html">The Premiere</a></p>
       </div>
       <div>
         <h4>Get in touch</h4>
@@ -464,7 +499,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Regenerative Farm Initiative</span>
-      <span class="footer-meal-counter"><strong>12,500</strong> of <strong>25,000</strong> meals &middot; <span style="color: rgba(255,255,255,0.4);">updated monthly</span></span>
+      <span class="footer-meal-counter"><strong>30,000</strong> of <strong>25,000</strong> meals &middot; <span style="color: rgba(255,255,255,0.4);">updated monthly</span></span>
       <span>One woman. One meal. One acre.</span>
     </div>
   </div>

@@ -3,216 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>The Partnership — Regenerative Farm Initiative</title>
+<title>Trembling Earth Premiere | Regenerative Farm Initiative</title>
+<meta name="description" content="Trembling Earth, a feature documentary about The Farm at Okefenokee, premieres Thursday, November 12, 2026 at the Jacksonville Center for the Performing Arts, Terry Theater. Tickets support Trinity Rescue Mission and the Regenerative Farm Initiative.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30;0,9..144,300..600,100;1,9..144,300..600,30&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <style>
+/* ===== Premiere page ===== */
+
+/* Hero */
 .page-hero{
-  background: var(--cream);
-  padding: 70px 0 60px;
-  border-bottom: 1px solid var(--rule);
-}
-.page-hero .container{ max-width: 980px; }
-.page-hero h1{
-  font-weight: 300;
-  font-variation-settings: 'SOFT' 50, 'opsz' 144;
-  font-size: clamp(36px, 4.4vw, 58px);
-  line-height: 1.05; letter-spacing: -0.02em;
-  margin-bottom: 22px;
-}
-.page-hero h1 em{ color: var(--terracotta); font-style: italic; }
-.page-hero p{ font-size: 19px; color: var(--ink-2); max-width: 60ch; }
-
-/* Partner logos lockup */
-.partners-row{
-  background: var(--cream);
-  padding: 30px 0 60px;
-}
-.partners-row .container{
-  display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center;
-}
-.partner-mark{
-  display:flex; flex-direction: column; align-items: center; gap: 18px;
-  padding: 30px;
-}
-.partner-mark.dark{ background: var(--green-darker); border-radius: 6px; }
-.partner-mark.light{ background: var(--white); border: 1px solid var(--rule); border-radius: 6px; }
-.partner-mark img{ height: 80px; width: auto; max-width: 100%; }
-.partner-mark.dark img{ filter: none; }
-.partner-mark .role{
-  font-family: var(--sans); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--muted); font-weight: 600;
-}
-.partner-mark.dark .role{ color: rgba(255,255,255,0.6); }
-.partner-cross{
-  font-family: var(--serif); font-size: 36px; font-style: italic; color: var(--muted);
-}
-@media (max-width: 760px){
-  .partners-row .container{ grid-template-columns: 1fr; }
-  .partner-cross{ text-align: center; }
-}
-
-/* Two-up cards */
-.two-up{ background: var(--cream); padding: 40px 0 90px; }
-.two-up .container{ display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-.org-card{
-  background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
-  padding: 36px;
-}
-.org-card h3{ margin-bottom: 14px; font-weight: 500; }
-.org-card .lede-sm{ color: var(--ink-2); font-size: 16px; margin-bottom: 22px; }
-.org-card ul{ list-style: none; padding: 0; border-top: 1px solid var(--rule); }
-.org-card li{
-  padding: 14px 0; border-bottom: 1px solid var(--rule);
-  display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: flex-start;
-  font-size: 15px; color: var(--ink-2); line-height: 1.45;
-}
-.org-card li::before{
-  content:'•'; color: var(--terracotta); font-size: 18px; line-height: 1;
-}
-.org-card .link{ margin-top: 22px; display: inline-block; }
-@media (max-width: 760px){ .two-up .container{ grid-template-columns: 1fr; } }
-
-/* Scale of need */
-.scale{
-  background: var(--green-darker); color: var(--cream);
-  padding: 90px 0;
-}
-.scale .head{ display:flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 50px; }
-.scale .head h2{ color: var(--white); font-weight: 300; max-width: 18ch; }
-.scale .head h2 em{ color: var(--mustard); font-style: italic; }
-.scale .head .meta{
-  font-family: var(--serif); font-style: italic; color: rgba(255,255,255,0.65);
-  font-size: 16px; max-width: 36ch;
-}
-.scale-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden; }
-.stat-cell{
   background: var(--green-darker);
-  padding: 32px 28px;
+  color: var(--cream);
+  padding: 72px 0 80px;
+  border-bottom: 6px solid var(--terracotta);
+  position: relative; overflow: hidden;
 }
-.stat-cell .num{
-  font-family: var(--serif); font-weight: 300; color: var(--white);
-  font-size: 56px; line-height: 1;
-  font-variation-settings: 'SOFT' 30;
+.page-hero::after{
+  content:''; position:absolute; left:-160px; bottom:-160px; width: 520px; height: 520px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(181,139,42,0.16), transparent 70%);
+  pointer-events: none;
 }
-.stat-cell .label{
-  font-family: var(--sans); font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
-  color: rgba(255,255,255,0.7); margin-top: 12px; display: block;
+.page-hero .container{
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center;
 }
-.stat-cell .note{ display: block; margin-top: 6px; font-size: 13px; color: rgba(255,255,255,0.5); font-style: italic; }
-@media (max-width: 880px){ .scale-grid{ grid-template-columns: 1fr 1fr; } }
-
-/* Why it works */
-.why{ padding: 90px 0; background: var(--cream); }
-.why .container{ display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.why h2{ font-weight: 400; margin-bottom: 18px; }
-.why p{ color: var(--ink-2); font-size: 17px; line-height: 1.65; margin-bottom: 12px; }
-.why .img-wrap{ aspect-ratio: 4/5; overflow: hidden; border-radius: 6px; }
-.why .img-wrap img{ width: 100%; height: 100%; object-fit: cover; }
-@media (max-width: 880px){ .why .container{ grid-template-columns: 1fr; } }
-
-/* Quote */
-.partnership-quote{
-  background: var(--cream-2);
-  padding: 90px 0;
-}
-.partnership-quote .container{ max-width: 880px; text-align: center; }
-.partnership-quote .pullquote{
-  border-left: none; padding-left: 0; max-width: 26ch; margin: 0 auto;
-  font-size: clamp(28px, 3.6vw, 44px);
-}
-.qmark{ font-family: var(--serif); font-style: italic; font-size: 100px; color: var(--terracotta); line-height: .8; display:block; margin-bottom: -10px; }
-
-/* Co-founders */
-.cofounders{ padding: 90px 0; background: var(--cream); }
-.cofounders .head{ max-width: 720px; margin-bottom: 50px; }
-.cofounders .head h2{ font-weight: 400; margin-bottom: 14px; }
-.cofounders .head p{ color: var(--ink-2); font-size: 17px; }
-
-.cf-profile{
-  display: grid; grid-template-columns: 320px 1fr; gap: 56px;
-  align-items: flex-start;
-  padding: 50px 0;
-  border-top: 1px solid var(--rule);
-}
-.cf-profile:first-of-type{ border-top: none; padding-top: 0; }
-.cf-portrait{
-  aspect-ratio: 4/5; background: var(--green-dark); border-radius: 6px;
-  overflow: hidden; position: sticky; top: 100px;
-}
-.cf-portrait img{
-  width: 100%; height: 100%; object-fit: cover; display: block;
-}
-.cf-bio .role{
-  font-family: var(--sans); font-size: 11px; letter-spacing: .22em;
-  text-transform: uppercase; color: var(--terracotta); font-weight: 600;
-  margin-bottom: 10px; display: block;
-}
-.cf-bio h3{
-  font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 3vw, 40px);
-  margin-bottom: 22px; line-height: 1.05;
+.page-hero .kicker{ color: var(--mustard); margin-bottom: 18px; }
+.page-hero h1{
+  color: var(--white); font-weight: 300;
   font-variation-settings: 'SOFT' 50, 'opsz' 144;
+  font-size: clamp(52px, 6.5vw, 88px);
+  line-height: .98; letter-spacing: -0.02em;
+  margin-bottom: 18px;
 }
-.cf-bio p{
-  color: var(--ink-2); font-size: 16px; line-height: 1.65;
-  margin-bottom: 14px; max-width: 64ch;
+.page-hero .tagline{
+  font-family: var(--serif); font-style: italic; font-size: clamp(20px, 2vw, 24px);
+  color: var(--cream-2); line-height: 1.35; max-width: 30ch; margin-bottom: 26px;
 }
-.cf-bio p.lede{
-  font-family: var(--serif); font-style: italic;
-  color: var(--ink); font-size: 18px;
-  margin-bottom: 22px;
+.page-hero .legacy{
+  font-family: var(--sans); font-size: 12px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7); font-weight: 600; margin-bottom: 18px;
 }
-
-/* Founder facts strip */
-.cf-facts{
-  display: flex; gap: 40px; flex-wrap: wrap;
-  margin-top: 24px; padding-top: 22px;
-  border-top: 1px solid var(--rule);
+.page-hero p.lede{ color: rgba(255,255,255,0.85); font-size: 18px; max-width: 52ch; margin-bottom: 14px; }
+.page-hero p.question{
+  font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--mustard); margin-bottom: 28px; max-width: 40ch;
 }
-.cf-facts .f .num{
-  font-family: var(--serif); font-size: 26px; color: var(--terracotta); font-weight: 500; line-height: 1;
+.when{
+  border-left: 3px solid var(--terracotta); padding-left: 18px; margin-bottom: 30px;
+  font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.9);
 }
-.cf-facts .f .lbl{
-  font-family: var(--sans); font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
-  color: var(--muted); margin-top: 6px; display: block; max-width: 18ch;
-}
-
-/* Shared closing quote */
-.cf-closing-quote{
-  margin-top: 70px; padding: 48px;
-  background: var(--white); border-left: 4px solid var(--terracotta);
-  border-radius: 0 6px 6px 0;
-}
-.cf-closing-quote .q{
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  font-size: clamp(22px, 2.6vw, 30px); line-height: 1.3;
-  color: var(--ink); max-width: 32ch;
-}
-.cf-closing-quote cite{
-  display: block; margin-top: 14px;
-  font-family: var(--sans); font-style: normal;
-  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--muted); font-weight: 600;
-}
-
+.when .day{ font-family: var(--serif); font-size: 24px; color: var(--white); display:block; margin-bottom: 4px; }
+.hero-actions{ display:flex; gap: 14px; flex-wrap: wrap; }
+.poster{ border-radius: 6px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+.poster img{ width:100%; height:auto; display:block; }
 @media (max-width: 880px){
-  .cf-profile{ grid-template-columns: 1fr; gap: 28px; padding: 40px 0; }
-  .cf-portrait{ position: static; max-width: 280px; }
+  .page-hero{ padding: 48px 0 56px; }
+  .page-hero .container{ grid-template-columns: 1fr; gap: 36px; }
+  .poster{ order: -1; }
 }
 
-/* Ask */
-.partner-ask{ background: var(--green-darker); color: var(--cream); padding: 70px 0; text-align: center; }
-.partner-ask h2{ color: var(--white); font-weight: 300; max-width: 22ch; margin: 0 auto 20px; }
-.partner-ask h2 em{ color: var(--mustard); font-style: italic; }
-.partner-ask p{ color: rgba(255,255,255,0.78); max-width: 56ch; margin: 0 auto 26px; }
-.partner-ask a.email{
-  font-family: var(--serif); font-size: 22px; font-style: italic;
-  color: var(--cream); text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 4px;
+/* Schedule strip */
+.schedule{ background: var(--cream-2); padding: 48px 0; border-bottom: 1px solid var(--rule); }
+.schedule .times{
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
 }
-.partner-ask a.email:hover{ color: var(--white); border-color: var(--white); }
+.schedule .t{ background: var(--white); padding: 22px 24px; }
+.schedule .t .hr{ font-family: var(--serif); font-size: 30px; line-height: 1; color: var(--terracotta); }
+.schedule .t .what{ display:block; margin-top: 8px; font-family: var(--sans); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+.schedule .notes{ margin-top: 18px; display:flex; gap: 28px; flex-wrap: wrap; font-size: 15px; color: var(--ink-2); }
+.schedule .notes .music{ font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink); }
+@media (max-width: 760px){ .schedule .times{ grid-template-columns: 1fr 1fr; } }
+
+/* About the film */
+.film{ background: var(--cream); padding: 90px 0; }
+.film .container{ display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
+.film h2{ font-weight: 400; margin-bottom: 20px; }
+.film p{ color: var(--ink-2); font-size: 17px; line-height: 1.65; margin-bottom: 16px; }
+.film p.title-line{ font-family: var(--serif); font-size: 21px; color: var(--ink); font-style: italic; }
+.video{ position: relative; aspect-ratio: 16/9; border-radius: 6px; overflow: hidden; background: var(--green-darker); box-shadow: var(--shadow-md); }
+.video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+@media (max-width: 880px){ .film .container{ grid-template-columns: 1fr; gap: 32px; } }
+
+/* Tiers */
+.tiers{ background: var(--green-dark); color: var(--cream); padding: 90px 0; }
+.tiers .head{ max-width: 760px; margin-bottom: 44px; }
+.tiers .head .kicker{ color: var(--mustard); }
+.tiers .head h2{ color: var(--white); font-weight: 300; margin-bottom: 16px; }
+.tiers .head p{ color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.6; }
+.tier-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.tier{
+  background: var(--white); color: var(--ink); border-radius: 6px; overflow: hidden;
+  display:flex; flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+}
+.tier:hover{ transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.tier .photo{ aspect-ratio: 1/1; overflow: hidden; background: var(--green-light); }
+.tier .photo img{ width:100%; height:100%; object-fit: cover; }
+.tier .body{ padding: 22px 24px 26px; display:flex; flex-direction: column; flex: 1; }
+.tier .price{ font-family: var(--serif); font-size: 34px; color: var(--terracotta); line-height: 1; }
+.tier h3{ font-size: 20px; font-weight: 500; margin: 8px 0 10px; line-height: 1.2; }
+.tier p{ color: var(--ink-2); font-size: 15px; line-height: 1.5; flex: 1; }
+.tier .seat{
+  margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--rule);
+  font-family: var(--sans); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600;
+}
+.tier .btn{ margin-top: 16px; align-self: flex-start; }
+@media (max-width: 1000px){ .tier-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px){ .tier-grid{ grid-template-columns: 1fr; } }
+
+/* Can't attend */
+.cant{ background: var(--cream-2); padding: 70px 0; }
+.cant .container{
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center;
+  background: var(--white); border: 1px solid var(--rule); border-radius: 6px; padding: 40px 44px;
+}
+.cant h2{ font-weight: 400; font-size: clamp(26px, 3vw, 36px); margin-bottom: 12px; }
+.cant p{ color: var(--ink-2); font-size: 16px; margin-bottom: 8px; }
+.cant .actions{ display:flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 880px){
+  .cant .container{ grid-template-columns: 1fr; padding: 32px 28px; }
+  .cant .actions{ justify-content: flex-start; }
+}
+
+/* More than a premiere */
+.more{ background: var(--cream); padding: 100px 0; text-align: center; }
+.more .container{ max-width: 820px; }
+.more h2{ font-weight: 400; margin-bottom: 28px; }
+.more p{ color: var(--ink-2); font-size: 18px; line-height: 1.6; margin: 0 auto 14px; max-width: 58ch; }
+.more p.act{ font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); }
+.more h3{ margin: 48px 0 16px; font-weight: 400; font-size: clamp(26px, 3vw, 36px); }
+.more .venue{ font-size: 16px; color: var(--ink-2); line-height: 1.5; margin-bottom: 28px; }
+.more .venue .day{ font-family: var(--serif); font-size: 22px; color: var(--ink); display:block; }
 </style>
 </head>
 <body>
@@ -229,183 +152,167 @@
     <nav class="site-nav">
       <a href="index.html">Home</a>
       <a href="pilot.html">The Pilot</a>
-      <a href="partnership.html" class="active">The Partnership</a>
-      <a class="cta-btn" href="mailto:info@trinityrescue.org">Contact Us</a>
+      <a href="phase-one.html">Phase One</a>
+      <a href="about.html">About the Partners</a>
+      <a href="mailto:info@trinityrescue.org">Contact Us</a>
+      <a class="cta-btn" href="partnership.html">The Premiere</a>
     </nav>
   </div>
 </header>
 
-<!-- PAGE HERO -->
+<!-- HERO -->
 <section class="page-hero">
   <div class="container">
-    <span class="kicker">/ The Partnership</span>
-    <h1>Two organizations, <em>one structural idea.</em></h1>
-    <p>The rhythms of regenerative farming &mdash; patience, consistency, showing up every day &mdash; mirror the rhythms of recovery. The Farm at Okefenokee has the knowledge, the experience, and a long-term commitment. Trinity Rescue Mission has the people and the program. The pilot is what happens when you put them together.</p>
+    <div>
+      <span class="kicker">Documentary Premiere &middot; November 12, 2026</span>
+      <h1>Trembling Earth</h1>
+      <p class="tagline">Some things take longer than a lifetime. We build them anyway.</p>
+      <p class="legacy">A Film About Legacy. An Evening That Creates One.</p>
+      <p class="lede">Join us for the premiere of Trembling Earth, a new documentary exploring The Farm at Okefenokee, regenerative agriculture, community, and the question at the heart of it all:</p>
+      <p class="question">What does it mean to build something meant to outlive us?</p>
+      <div class="when">
+        <span class="day">Thursday, November 12, 2026</span>
+        Jacksonville Center for the Performing Arts, Terry Theater<br>
+        Jacksonville, Florida
+      </div>
+      <div class="hero-actions">
+        <a href="https://www.ticketmaster.com/event/2200651C95EF34CC" target="_blank" rel="noopener" class="btn btn-primary">Get tickets <span class="arrow">&rarr;</span></a>
+        <a href="?form=FUNARAUDRDS" class="btn btn-ghost-light">Give to Phase One</a>
+      </div>
+    </div>
+    <div class="poster">
+      <img src="img/trembling-earth-hero.jpg" alt="Trembling Earth key art: a canoe on still swamp water at dusk, cypress trees and a windmill on the horizon, premiere event November 12, 2026">
+    </div>
   </div>
 </section>
 
-<!-- PARTNERS LOCKUP -->
-<div class="partners-row">
+<!-- SCHEDULE -->
+<section class="schedule">
   <div class="container">
-    <div class="partner-mark dark">
-      <img src="img/logo-okefenokee-white.png" alt="The Farm at Okefenokee">
-      <span class="role">The Land</span>
+    <div class="times">
+      <div class="t"><div class="hr">5:00 PM</div><span class="what">VIP Reception</span></div>
+      <div class="t"><div class="hr">6:00 PM</div><span class="what">General Admission Doors</span></div>
+      <div class="t"><div class="hr">7:00 PM</div><span class="what">Opening Remarks</span></div>
+      <div class="t"><div class="hr">7:15 PM</div><span class="what">Film Premiere</span></div>
     </div>
-    <span class="partner-cross">&times;</span>
-    <div class="partner-mark light">
-      <img src="img/logo-trm.png" alt="Trinity Rescue Mission">
-      <span class="role">The People</span>
+    <div class="notes">
+      <span class="music">Live music by Walter Parks before the screening.</span>
+      <span>Run time 90 minutes.</span>
+      <span>The 5:00 PM VIP Reception is open to Farm Work, Laying Hen, and Heritage Livestock Sponsors.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE FILM -->
+<section class="film">
+  <div class="container">
+    <div>
+      <span class="kicker">About the film</span>
+      <h2>A living legacy near the Okefenokee.</h2>
+      <p>Near the Okefenokee, one of America's most extraordinary natural landscapes, Jeff Meyer and Doug Davis are building The Farm at Okefenokee, a regenerative farm and intentional community designed to endure beyond its founders.</p>
+      <p class="title-line">Trembling Earth follows their effort to turn that vision into a living legacy.</p>
+      <p>Set against the timeless landscape of the Okefenokee, the film explores the connections between land, food, community, and purpose, and asks what each generation owes the ones that follow.</p>
+    </div>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/qopVY9yF5Jg" title="Trembling Earth" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="tiers" id="tickets">
+  <div class="container">
+    <div class="head">
+      <span class="kicker">Your ticket creates an impact</span>
+      <h2>Reserve your seat. Choose your impact.</h2>
+      <p>Every ticket includes admission to the premiere and directly supports Trinity Rescue Mission and the Regenerative Farm Initiative, a partnership creating agricultural training, meaningful work, and fresh food for women participating in Trinity's recovery programs.</p>
+    </div>
+    <div class="tier-grid">
+      <article class="tier">
+        <div class="photo"><img src="img/tier-100-chicks.jpg" alt="Baby chicks in a wooden crate"></div>
+        <div class="body">
+          <div class="price">$100</div>
+          <h3>Premiere Ticket</h3>
+          <p>Provides 12 baby chicks to help establish a sustainable source of fresh eggs for Trinity Rescue Mission.</p>
+          <span class="seat">Includes one premiere seat</span>
+          <a class="btn btn-primary" href="https://www.ticketmaster.com/event/2200651C95EF34CC" target="_blank" rel="noopener">Get tickets <span class="arrow">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="tier">
+        <div class="photo"><img src="img/tier-500-farm-work.jpg" alt="Nancy and Bertha in farm aprons with garden tool buckets"></div>
+        <div class="body">
+          <div class="price">$500</div>
+          <h3>Farm Work Sponsor</h3>
+          <p>Provides clothing, aprons, and garden tools for women working alongside The Farm's agricultural team.</p>
+          <span class="seat">Includes one premiere seat and the VIP reception</span>
+          <a class="btn btn-primary" href="https://www.ticketmaster.com/event/2200651C95EF34CC" target="_blank" rel="noopener">Get tickets <span class="arrow">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="tier">
+        <div class="photo"><img src="img/tier-500-laying-hen.jpg" alt="A roll-out nest box with eggs collected in the front tray"></div>
+        <div class="body">
+          <div class="price">$500</div>
+          <h3>Laying Hen Sponsor</h3>
+          <p>Funds a roll-out laying box for up to 75 hens, helping expand Trinity's fresh egg program.</p>
+          <span class="seat">Includes one premiere seat and the VIP reception</span>
+          <a class="btn btn-primary" href="https://www.ticketmaster.com/event/2200651C95EF34CC" target="_blank" rel="noopener">Get tickets <span class="arrow">&rarr;</span></a>
+        </div>
+      </article>
+      <article class="tier">
+        <div class="photo"><img src="img/tier-1000-meishan-sow.jpg" alt="A woman with a Meishan sow in a pasture"></div>
+        <div class="body">
+          <div class="price">$1,000</div>
+          <h3>Heritage Livestock Sponsor</h3>
+          <p>Provides Trinity Rescue Mission with a Meishan sow, helping establish a sustainable heritage livestock breeding program.</p>
+          <span class="seat">Includes one premiere seat and the VIP reception</span>
+          <a class="btn btn-primary" href="https://www.ticketmaster.com/event/2200651C95EF34CC" target="_blank" rel="noopener">Get tickets <span class="arrow">&rarr;</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CAN'T ATTEND -->
+<section class="cant">
+  <div class="container">
+    <div>
+      <span class="kicker">Can't make it?</span>
+      <h2>Give to Phase One.</h2>
+      <p>Phase One is the 126-acre farm and the permanent home for 24 women that the film points toward. A gift of any size goes to that work.</p>
+      <p><a href="phase-one.html">Read the Phase One plan and the full sponsorship list &rarr;</a></p>
+    </div>
+    <div class="actions">
+      <a href="?form=FUNARAUDRDS" class="btn btn-primary">Give to Phase One <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MORE THAN A PREMIERE -->
+<section class="more">
+  <div class="container">
+    <span class="kicker">More than a premiere</span>
+    <h2>Trembling Earth is a film about stewardship, purpose, and building something that lasts.</h2>
+    <p class="act">On November 12, the ideas explored on screen will become action.</p>
+    <p>Your ticket helps provide animals, equipment, tools, fresh food, agricultural skills, and meaningful opportunities through the Regenerative Farm Initiative.</p>
+    <h3>Watch the Story. Help Build the Legacy.</h3>
+    <div class="venue">
+      <span class="day">Thursday, November 12, 2026</span>
+      Jacksonville Center for the Performing Arts, Terry Theater
+    </div>
+    <a href="https://www.ticketmaster.com/event/2200651C95EF34CC" target="_blank" rel="noopener" class="btn btn-primary">Reserve your seat <span class="arrow">&rarr;</span></a>
+  </div>
+</section>
+
+<!-- PARTNER STRIP -->
+<div class="partner-strip">
+  <div class="container">
+    <span class="label">A partnership of</span>
+    <div class="logos">
+      <img class="light-logo" src="img/logo-okefenokee-white.png" alt="The Farm at Okefenokee">
+      <img class="dark-logo" src="img/logo-trm.png" alt="Trinity Rescue Mission">
     </div>
   </div>
 </div>
-
-<!-- TWO-UP -->
-<section class="two-up">
-  <div class="container">
-    <article class="org-card">
-      <span class="kicker">The Land</span>
-      <h3>The Farm at Okefenokee</h3>
-      <p class="lede-sm">A 1,000+ acre regenerative farming community in Folkston, Georgia &mdash; founded on the conviction that healing land and healing lives are the same kind of work.</p>
-      <ul>
-        <li>1,000+ acres of regenerative farming community in Folkston, GA</li>
-        <li>Knowledge, experience, and commitment &mdash; an established farming operation</li>
-        <li>Co-founders Jeff Meyer and Doug Davis &mdash; long-term commitment and vision</li>
-      </ul>
-      <a class="link" href="https://www.okefarm.com" target="_blank" rel="noopener">okefarm.com &nearr;</a>
-    </article>
-    <article class="org-card">
-      <span class="kicker">The People</span>
-      <h3>Trinity Rescue Mission</h3>
-      <p class="lede-sm">Northeast Florida's largest provider of emergency shelter. Since 1962, Trinity has been working to help people exit homelessness through emergency services and residential recovery programs.</p>
-      <ul>
-        <li>Residential recovery programs for people experiencing homelessness</li>
-        <li>6&ndash;24 month programs in addiction recovery, life skills, and employment</li>
-        <li>Northeast Florida's largest emergency shelter provider</li>
-      </ul>
-      <a class="link" href="https://www.trinityrescue.org" target="_blank" rel="noopener">trinityrescue.org &nearr;</a>
-    </article>
-  </div>
-</section>
-
-<!-- SCALE OF NEED -->
-<section class="scale">
-  <div class="container">
-    <div class="head">
-      <div>
-        <span class="kicker" style="color: var(--mustard);">Trinity Rescue Mission &middot; Last 12 Months</span>
-        <h2>The scale of the <em>need.</em></h2>
-      </div>
-      <p class="meta">These numbers come from one organization, in one city, in one year. They are why a one-acre pilot is not the end of the story.</p>
-    </div>
-    <div class="scale-grid">
-      <div class="stat-cell">
-        <div class="num">194,174</div>
-        <span class="label">Meals distributed</span>
-        <span class="note">across all TRM programs</span>
-      </div>
-      <div class="stat-cell">
-        <div class="num">2,193</div>
-        <span class="label">People assisted</span>
-        <span class="note">unique individuals served</span>
-      </div>
-      <div class="stat-cell">
-        <div class="num">67,424</div>
-        <span class="label">Nights of shelter</span>
-        <span class="note">beds filled, every night</span>
-      </div>
-      <div class="stat-cell">
-        <div class="num">89</div>
-        <span class="label">Connected to employment</span>
-        <span class="note">a path back to work</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY IT WORKS -->
-<section class="why">
-  <div class="container">
-    <div class="img-wrap">
-      <img src="img/harvest-cabbage.jpg" alt="Cabbage being harvested in the field">
-    </div>
-    <div>
-      <span class="kicker">Why it works</span>
-      <h2>Built on the same foundation.</h2>
-      <p>Regenerative farming requires patience, consistency, and showing up every day. So does recovery.</p>
-      <p>The rhythms of the land &mdash; planting, tending, harvesting &mdash; mirror the rhythms of rebuilding a life. The partnership between these two organizations is not incidental. It is structural.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PULL QUOTE -->
-<section class="partnership-quote">
-  <div class="container">
-    <span class="qmark">&ldquo;</span>
-    <blockquote class="pullquote">
-      Feed people, employ women in recovery, and build a community rooted in land and work.
-      <cite>The premise of the partnership &middot; The Farm at Okefenokee</cite>
-    </blockquote>
-  </div>
-</section>
-
-<!-- CO-FOUNDERS -->
-<section class="cofounders">
-  <div class="container">
-    <div class="head">
-      <span class="kicker">The Co-founders</span>
-      <h2>Jeff Meyer &amp; Doug Davis.</h2>
-      <p>Two builders behind The Farm at Okefenokee &mdash; with deep, complementary careers in conservation, regenerative land use, and community-rooted development.</p>
-    </div>
-    <div class="cf-profile">
-      <div class="cf-portrait"><img src="img/jeff-profile.jpg" alt="Jeff Meyer"/></div>
-      <div class="cf-bio">
-        <span class="role">Co-founder</span>
-        <h3>Jeff Meyer</h3>
-        <p class="lede">Born and raised in the farming community of Amana, Iowa &mdash; deep roots in working and living from the land.</p>
-        <p>An avid outdoorsman and conservationist, Jeff joined American Forests in the late 1980s on a mission to plant 20 million trees across the continental United States. The last tree was planted in 2002 in New Mexico.</p>
-        <p>In 1995, he discovered, authenticated, and acquired genetic rights to the &ldquo;Algeo tree,&rdquo; the last surviving tree planted by John Chapman &mdash; Johnny Appleseed. In partnership with the Secretary of the Interior, he developed our nation's largest privately-funded habitat conservation bank: 627,000 acres in Wyoming.</p>
-        <p>His work in renewable energy is equally notable: he led a project to replace a coal-fired power plant in Utah with hydrogen for the Los Angeles grid, and founded a Texas solar developer that installed 15,800 megawatts of capacity. He has planted trees at the White House and the Palace of Versailles, and led a project to plant 3,400 trees &mdash; one for each recipient of the Congressional Medal of Honor.</p>
-        <div class="cf-facts">
-          <div class="f"><div class="num">20M+</div><span class="lbl">Trees planted &middot; American Forests</span></div>
-          <div class="f"><div class="num">627,000</div><span class="lbl">Acres of habitat conservation</span></div>
-          <div class="f"><div class="num">15,800 MW</div><span class="lbl">Solar capacity installed in Texas</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cf-profile">
-      <div class="cf-portrait"><img src="img/doug-davis.webp" alt="Doug Davis"/></div>
-      <div class="cf-bio">
-        <span class="role">Founder, The Farm at Okefenokee</span>
-        <h3>Doug Davis</h3>
-        <p class="lede">Grew up in the woods and waters of North Florida and South Georgia &mdash; lifelong passions for fishing, hunting, surfing, and the outdoors that shaped a career.</p>
-        <p>As a conservation-based real estate developer, Doug has more than 30 years of experience focused on low-impact development, resilient communities, alternative energy, and the sustainable integration of agriculture, economy, and environment into communities and commerce.</p>
-        <p>His expertise is recognized by peers, governing authorities, and trade groups as among the top in conservation real estate. He has testified before the United States Congress &mdash; including the Subcommittee on Interior, Energy and Environment, and the Senate Committee on Environment and Public Works.</p>
-        <p>As founder of The Farm at Okefenokee, Doug brings together his passions, experience, and creativity to bring this one-of-a-kind regenerative farming community to life.</p>
-        <div class="cf-facts">
-          <div class="f"><div class="num">30+</div><span class="lbl">Years in conservation development</span></div>
-          <div class="f"><div class="num">Multiple</div><span class="lbl">U.S. Congressional testimonies</span></div>
-          <div class="f"><div class="num">1,000+</div><span class="lbl">Acres at Okefenokee</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cf-closing-quote">
-      <p class="q">&ldquo;When you combine regenerative farming with community living, the benefits are endless.&rdquo;</p>
-      <cite>The Farm at Okefenokee</cite>
-    </div>
-  </div>
-</section>
-
-<!-- ASK -->
-<section class="partner-ask">
-  <div class="container">
-    <span class="kicker" style="color: var(--mustard);">Get involved</span>
-    <h2>Want to be part of <em>what's next?</em></h2>
-    <p>The pilot is year one of a much longer arc. If you're a donor, a partner, or just curious &mdash; we'd love to hear from you.</p>
-    <a class="email" href="mailto:info@trinityrescue.org">info@trinityrescue.org &rarr;</a>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -425,11 +332,14 @@
         <h4>The site</h4>
         <p><a href="index.html">Home</a></p>
         <p><a href="pilot.html">The Pilot</a></p>
-        <p><a href="partnership.html">The Partnership</a></p>
+        <p><a href="phase-one.html">Phase One</a></p>
+        <p><a href="about.html">About the Partners</a></p>
+        <p><a href="partnership.html">The Premiere</a></p>
       </div>
       <div>
         <h4>Get in touch</h4>
         <p><a href="mailto:info@trinityrescue.org">info@trinityrescue.org</a></p>
+        <p><a href="mailto:mmesser@trinityrescue.org">mmesser@trinityrescue.org</a></p>
       </div>
       <div>
         <h4>Partners</h4>
@@ -439,11 +349,19 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Regenerative Farm Initiative</span>
-      <span class="footer-meal-counter"><strong>11,000</strong> of <strong>25,000</strong> meals &middot; <span style="color: rgba(255,255,255,0.4);">updated monthly</span></span>
+      <span class="footer-meal-counter"><strong>30,000</strong> of <strong>25,000</strong> meals &middot; <span style="color: rgba(255,255,255,0.4);">updated monthly</span></span>
       <span>One woman. One meal. One acre.</span>
     </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+<!-- Fundraise Up installation, same as trinityrescue.org (org ABKLWCBV). Give buttons open ?form=FUNARAUDRDS on this page. -->
+<script>(function(w,d,s,n,a){var o=function(n){return'function'==typeof n?
+o.l.push([arguments])&&o:function(){return o.l.push([n,arguments])&&o;}},t
+=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src=
+'https://cdn.fundraiseup.com/widget/'+a;t.parentNode.insertBefore(j,t);
+o.s=Date.now();o.v=3;o.l=[];l='call,catch,on,once,set,then,track'
+.split(',');for(i=0;i<7;i++)o[l[i]]=o(l[i]);w[n]=w[n] || o;
+})(window,document,'script','FundraiseUp','ABKLWCBV');</script>
+</body>
 </html>
